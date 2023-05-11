@@ -1,0 +1,196 @@
+.default{
+  width: 100%;
+  background-image: url(../../public/assests/images/bg.jpg);
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0px;
+  background-size: cover;
+}
+.leftCont{
+  background-image: url(../../public/assests/images/2556733.png);
+  width : 50%;
+}
+.container{
+  width: 80%;
+  margin: auto auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.text{
+  width: 50%;
+}
+
+.signup {
+  padding: 40px 100px;
+  background-color: white;
+  border-radius: 12px;
+  width: 50%;
+}
+.form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 07px;
+  position: relative;
+  width: 100%;
+}
+.text {
+  font-size: calc(28px + (40 - 28) * ((100vw - 320px) / (1920 - 320)));
+  color: #51595e;
+  text-transform: capitalize;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.login {
+  display: flex;
+  gap: 08px;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+}
+.loginText {
+  font-size: calc(08px + (40 - 28) * ((100vw - 320px) / (1920 - 320)));
+  color: #51595e;
+  text-transform: capitalize;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.desc {
+  color: rgba(100, 117, 137, 0.7);
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 30px;
+  text-align: left;
+  font-size: 16px;
+}
+.label {
+  font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
+  color: #51595e;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+input {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-color: rgba(100, 117, 137, 0.1);
+  color: #647589;
+  font-size: 17px;
+}
+.icon {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+.Btn {
+  background-color: var(--bs-blue);
+}
+.connectWith {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.connectText {
+  position: relative;
+  margin-top: 25px;
+}
+.connectText span {
+  font-size: 12px;
+  font-weight: 600;
+  background-color: #ffffff;
+  padding: 0 10px;
+  color: var(--bs-gray);
+  line-height: 14px;
+}
+.connectText h6 {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.connectText h6::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 70%;
+  height: 1px;
+  top: 6px;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  z-index: -1;
+}
+.google {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: white;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  cursor: pointer;
+  box-shadow: 0px 6px 8px rgba(254, 70, 83, 0.21);
+}
+
+.google:hover{
+    background-color: white;
+    color: red;
+}
+.facebook {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: blue;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 6px 8px rgba(254, 70, 83, 0.21);
+  }
+  .facebook:hover{
+    background-color: white;
+    color: blue;
+  }
+
+  .twitter {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 6px 8px rgba(254, 70, 83, 0.21);
+    background-color: #00A0DD;;
+  }
+  
+  .twitter:hover{
+    background-color: white;
+    color: #00A0DD;
+    transition: 0.2s all linear;
+  }

@@ -1,0 +1,44 @@
+.userMainPage {
+  position: relative;
+}
+.leftMenu {
+  position: fixed;
+  top: 18%;
+  background-color: var(--bs-darkBlue);
+  left: 2%;
+  width: 80px;
+  padding: 36px 45px;
+  border-radius: 10px;
+}
+.rightMenu {
+  position: fixed;
+  width: 80px;
+  top: 18%;
+  background-color: var(--bs-white);
+  right: 2%;
+  padding: 36px 45px;
+  border-radius: 10px;
+}
+.userWall {
+  width: 82%;
+  margin: 30px auto;
+}
+
+.MainSection {
+  width: 82%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+.feed{
+  width: calc(100% - 760px);
+}
+.leftMainSection {
+  width: 380px;
+}
+.rightMainSection {
+width: 380px;
+}
+

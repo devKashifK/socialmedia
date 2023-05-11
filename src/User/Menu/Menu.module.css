@@ -1,0 +1,86 @@
+.controls {
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+  justify-content: center;
+  align-items: center;
+}
+.sideBarIcons {
+  margin: 30px 0;
+  padding: 30px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+}
+.icons {
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+.sideBarIcons .icons {
+  width: 45px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.iconsSearch {
+  width: 45px;
+  height: 45px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #edf7fb;
+  color: grey;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+.sideBarIconsRight{
+    margin: 30px 0;
+    padding: 30px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.221);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+  }
+.friendsProfile {
+  width: 55px;
+  height: 55px;
+  position: relative;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+}
+.status {
+  position: absolute;
+  right: -1px;
+  top: -3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 100%;
+  border: 3px solid var(--bs-white);
+}
