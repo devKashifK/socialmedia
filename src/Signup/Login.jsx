@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Signup.module.css";
 import { HiOutlineMail } from "react-icons/hi";
@@ -7,6 +7,35 @@ import { FiTwitter } from "react-icons/fi";
 import { FaFacebookF } from "react-icons/fa";
 
 export default function Login() {
+  const [userInput, setUserInput] = useState()
+
+  function handleChange(e){
+    const name=e.target.name
+    const value = e.target.value
+    setUserInput(prev => {
+     return{ ...prev , [name] : value }
+    })
+    console.log(userInput)
+  }
+
+  async function handleClick(e){
+     e.preventDefault()
+     const email = userInput.email
+     const password  = userInput.password
+
+     const response = await fetch("http://localhost:4000/login" , {
+      method : "POST",
+      headers : {
+        'Content-Type': 'application/json',
+      },
+      body : JSON.stringify({email , password})
+     
+     })
+     const data = await response.json()
+     console.log(data.message)
+
+
+  }
   return (
     <div className={styles.default}>
       <div className={styles.container}>
@@ -17,12 +46,12 @@ export default function Login() {
             <p className={styles.desc}>
               Welcome back to Friendzone, please login to your account. .
             </p>
-            <form action="post" className={styles.form}>
+            <form action="post" className={styles.form} onSubmit={handleClick}>
               <div className={styles.formGroup}>
                 <label className={styles.label} for="email">
                   Email Address
                 </label>
-                <input type="text" placeholder="Your Email" id="email" />
+                <input type="text" placeholder="Your Email" id="email" name="email" onChange={handleChange}/>
                 <div className={styles.icon}>
                   <HiOutlineMail />
                 </div>
@@ -31,12 +60,12 @@ export default function Login() {
                 <label className={styles.label} for="password">
                   Password
                 </label>
-                <input type="text" placeholder="Your Password" id="password" />
+                <input type="text" placeholder="Your Password" id="password" name="password" onChange={handleChange}  required = "required"/>
                 <div className={styles.icon}>
                   <AiOutlineEye />
                 </div>
               </div>
-              <button className={styles.Btn}>Login</button>
+              <button className={styles.Btn} >Login</button>
             </form>
           </div>
           <div className={styles.login}>
