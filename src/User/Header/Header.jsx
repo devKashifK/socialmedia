@@ -10,8 +10,13 @@ import {
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FiHelpCircle, FiSettings, FiUser } from "react-icons/fi";
 import { BiLogOut } from "react-icons/bi";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+
+  const data = useSelector((state) => state.data.data)
+  console.log(data.post)
+  
 
     const [show, setShow] = useState(false)
   return (
@@ -41,7 +46,7 @@ export default function Header() {
       </div>
       <div className={styles.leftSide}>
         <div className={styles.userProfileInfo}>
-          <h6> 326 </h6> <span> Posts</span>
+          <h6>  </h6> <span> Posts</span>
         </div>
         <div className={styles.userProfileInfo}>
           {" "}
@@ -61,9 +66,9 @@ export default function Header() {
           <div className={styles.number}>5</div>
           <IoMdNotificationsOutline />{" "}
         </div>
-        <div className={styles.userProfile}  onClick={() => setShow(!show)}> <div className={styles.dot}></div> </div>
+        <div className={styles.userProfile}  onClick={() => setShow(!show)} style={{backgroundImage : `url(${data.profile_photo})` }}> <div className={styles.dot}></div> </div>
         <div className={styles.name}>
-          <h4>Kashif Khan</h4>
+          <h4>{data.username}</h4>
           <span className="status">Active Now</span>
         </div>
         <div className={show ? styles.profileSettingShow : styles.profileSetting}>

@@ -1,7 +1,8 @@
 const express = require("express");
+const cors = require('cors');
 const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
-const cors = require('cors');
+
 
 const app = express();
 app.use(cors());
@@ -56,6 +57,41 @@ app.post("/login" , async(req, res) => {
     }
 })
 
+app.post("/getUserData" , async(req , res) => {
+  const {email} = req.body
+  try{
+    
+    const userData = await Model.findOne({email : email})
+    if(userData){
+    res.send(userData)
+    }
+    else{
+      res.send("not found")
+    }
+
+  }catch(error){
+     res.status(404).json({message : "Data Don't Exist"})
+  }
+})
+
+app.post("/signup", async(req, res) => {
+  const {email, password, username, location} =req.body
+  try{
+    const user = await Model.findOne({email})
+    if(!user){
+      const newUser = new Model({username, email, password, location})
+      await newUser.save()
+      return res.status(201).json({ message: 'User created successfully' });
+    }  
+    else{
+      return res.status(409).json({message : "Email Already Exist"})
+    }
+  }
+
+  catch(error){
+    res.status(500).json({message : error.message})
+  }
+})
 
 const port = process.env.PORT || 4000;
 
