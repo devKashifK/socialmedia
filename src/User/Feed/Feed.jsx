@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Feed.module.css";
 import {
   AiOutlineGlobal,
@@ -15,6 +15,8 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function Feeds() {
   const [show, setShow] = useState(false);
+
+
   return (
     <div className={styles.feed}>
       <div className={styles.Upper}>

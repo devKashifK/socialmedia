@@ -38,6 +38,16 @@ app.get("/data", async (req, res) => {
   }
 });
 
+app.get("/feeds" , async(req , res) => {
+  const feeds = mongoose.model("feeds" , userSchema, "feeds")
+
+  try{
+      const feedData = await feeds.find({})
+      res.json(feedData)
+  }catch(error){
+    res.status(500).json({message : error.message})
+  }
+})
 
 app.post("/login" , async(req, res) => {
     const {email , password} = req.body
