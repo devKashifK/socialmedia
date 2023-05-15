@@ -33,6 +33,8 @@ export default function User() {
     getData();
   }, []);
 
+  
+
   return (
     <>
     <Header />
