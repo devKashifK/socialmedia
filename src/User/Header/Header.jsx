@@ -68,7 +68,7 @@ export default function Header() {
         </div>
         <div className={styles.userProfile}  onClick={() => setShow(!show)} style={{backgroundImage : `url(${data.profile_photo})` }}> <div className={styles.dot}></div> </div>
         <div className={styles.name}>
-          <h4>{data.username}</h4>
+          <h4>{data.name}</h4>
           <span className="status">Active Now</span>
         </div>
         <div className={show ? styles.profileSettingShow : styles.profileSetting}>

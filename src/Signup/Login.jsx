@@ -27,7 +27,7 @@ export default function Login() {
     const email = userInput.email;
     const password = userInput.password;
 
-    const response = await fetch("http://localhost:4000/login", {
+    const response = await fetch("http://localhost:4000/api/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -38,8 +38,9 @@ export default function Login() {
     if (data.message === "Login Successful") {
       dispatch(loginAction.saveEmail(email))
       navigate("/user");
+      console.log(data);
     }
-    console.log(data.message);
+    
   }
 
   return (

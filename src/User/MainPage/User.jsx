@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, } from 'react';
 import styles from "./User.module.css";
 import Header from '../Header/Header';
 import Stories from '../Stories/Stories';
@@ -13,13 +13,12 @@ import { dataAction } from '../../Store/userData';
 
 export default function User() {
   const email = useSelector((state) => state.login.email)
-  const [data , setData] = useState()
    const dispatch = useDispatch()
 
 
    useEffect(() => {
   async function getData(){
-    const response = await fetch("http://localhost:4000/getUserData", {
+    const response = await fetch("http://localhost:4000/api/userData", {
       method : "POST", 
       headers: {
         "Content-Type": "application/json",
