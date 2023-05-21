@@ -13,18 +13,18 @@ import { GrFormClose } from "react-icons/gr";
 import { BiLocationPlus, BiPhotoAlbum } from "react-icons/bi";
 import { BsCameraVideo } from "react-icons/bs";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { useSelector } from "react-redux";
 import { background } from "./background";
+import user from "../../StoreZustand/user";
 
 export default function Feeds() {
-  const data = useSelector((state) => state.data.data);
+  const data = user((state) => state.data);
   const [showInput, setShowInput] = useState(false);
   const [show, setShow] = useState(false);
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
   const [color, setColor] = useState(null);
-  const [feeling, setFeeling]  = useState(false)
-  const[feelingText , setFeelingText] = useState("")
+  const [feeling, setFeeling] = useState(false);
+  const [feelingText, setFeelingText] = useState("");
 
   const handleColorChange = (index) => {
     const color = background[index];
@@ -36,9 +36,7 @@ export default function Feeds() {
   };
   const handleFeelingChange = (event) => {
     setFeelingText(event.target.value);
-    console.log(feelingText)
   };
-
 
   const handleImageChange = (event) => {
     setImage(event.target.files[0]);
@@ -46,8 +44,7 @@ export default function Feeds() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const { name, email, profile_photo, user_id, feelingText } = data;
-    console.log(name, email, user_id, profile_photo);
+    const { name, email, profile_photo, user_id } = data;
 
     const formData = new FormData();
     formData.append("caption", caption);
@@ -57,17 +54,15 @@ export default function Feeds() {
     formData.append("profile", profile_photo);
     formData.append("user_id", user_id);
     formData.append("background", color);
-    formData.append("feeling" , feelingText)
+    formData.append("feeling", feelingText);
 
-    console.log(formData);
     try {
       const res = await fetch("http://localhost:4000/api/post", {
         method: "POST",
         body: formData,
       });
-      console.log(res.data);
     } catch (err) {
-      console.error(err);
+      console.log(err);
     }
   };
 
@@ -154,21 +149,49 @@ export default function Feeds() {
             );
           })}
         </div>
-        {feeling ?  <div className={styles.feelingInput}>
+        {feeling ? (
+          <div className={styles.feelingInput}>
             <div className={styles.emoji}>😃</div>
-            <input type="text" list="1" placeholder="How Are You Feeling ?" value={feelingText}  className={styles.feeling} onChange={handleFeelingChange}/>
+            <input
+              type="text"
+              list="1"
+              placeholder="How Are You Feeling ?"
+              value={feelingText}
+              className={styles.feeling}
+              onChange={handleFeelingChange}
+            />
             <datalist id="1">
-              <option value="Shy">Shy</option>
-              <option value="Happy">Happy</option>
-              <option value="Sad">Sad</option>
-              <option value="Angry">Angry</option>
-              <option value="Worried">Worried</option>
-              <option value="Embarrassed">Embarrassed</option>
-              <option value="Surprised">Surprised</option>
+              <option value="Shy" onClick={handleFeelingChange}>
+                Shy
+              </option>
+              <option value="Happy" onClick={handleFeelingChange}>
+                Happy
+              </option>
+              <option value="Sad" onClick={handleFeelingChange}>
+                Sad
+              </option>
+              <option value="Angry" onClick={handleFeelingChange}>
+                Angry
+              </option>
+              <option value="Worried" onClick={handleFeelingChange}>
+                Worried
+              </option>
+              <option value="Embarrassed" onClick={handleFeelingChange}>
+                Embarrassed
+              </option>
+              <option value="Surprised" onClick={handleFeelingChange}>
+                Surprised
+              </option>
             </datalist>
-            <div className={styles.closeFeeling} onClick={() => setFeeling(false)}><GrFormClose /></div>
-          </div> : null}
-       
+            <div
+              className={styles.closeFeeling}
+              onClick={() => setFeeling(false)}
+            >
+              <GrFormClose />
+            </div>
+          </div>
+        ) : null}
+
         <div className={styles.option}>
           <div className={styles.event}>
             <BiPhotoAlbum /> Album
@@ -181,7 +204,6 @@ export default function Feeds() {
             />
           </div>
 
-         
           <div className={styles.event} onClick={() => setFeeling(true)}>
             <AiOutlineSmile />
             Feeling & Activity

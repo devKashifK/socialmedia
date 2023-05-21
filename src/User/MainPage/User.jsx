@@ -8,12 +8,11 @@ import UserSuggestionLeft from '../UserSuggestion/UserSuggestionLeft/UserSuggest
 import UserSuggestionRight from '../UserSuggestion/UserSuggestionRight/UserSuggestionRight';
 import Feeds from '../Feed/Feed';
 import UserPost from '../UserPost/UserPost';
-import { useDispatch, useSelector } from 'react-redux';
-import { dataAction } from '../../Store/userData';
+import user from '../../StoreZustand/user'
 
 export default function User() {
-  const email = useSelector((state) => state.login.email)
-   const dispatch = useDispatch()
+  const email = user((state) => state.email)
+  const data = user((state) => state.saveData)
 
 
    useEffect(() => {
@@ -26,7 +25,7 @@ export default function User() {
       body: JSON.stringify({ email}),
     });
     const userData = await response.json();
-    dispatch(dataAction.saveData(userData))
+     data(userData)
    }
 
     getData();
