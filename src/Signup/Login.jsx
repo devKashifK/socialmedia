@@ -5,14 +5,13 @@ import { HiOutlineMail } from "react-icons/hi";
 import { AiOutlineEye, AiOutlineGoogle } from "react-icons/ai";
 import { FiTwitter } from "react-icons/fi";
 import { FaFacebookF } from "react-icons/fa";
-import { useDispatch, } from "react-redux";
-import { loginAction } from "../Store/login";
+import user from "../StoreZustand/user";
 
 export default function Login() {
   const [userInput, setUserInput] = useState();
   const navigate = useNavigate();
 
-  const dispatch = useDispatch()
+  const saveEmail = user((state) => state.getEmail)
 
   function handleChange(e) {
     const name = e.target.name;
@@ -36,7 +35,7 @@ export default function Login() {
     });
     const data = await response.json();
     if (data.message === "Login Successful") {
-      dispatch(loginAction.saveEmail(email))
+     saveEmail(email)
       navigate("/user");
       console.log(data);
     }

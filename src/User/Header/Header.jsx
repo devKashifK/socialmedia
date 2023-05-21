@@ -10,12 +10,12 @@ import {
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FiHelpCircle, FiSettings, FiUser } from "react-icons/fi";
 import { BiLogOut } from "react-icons/bi";
-import { useSelector } from "react-redux";
+import user from "../../StoreZustand/user";
 
 export default function Header() {
 
-  const data = useSelector((state) => state.data.data)
-  console.log(data.post)
+  const data = user((state) => state.data)
+  console.log(data)
   
 
     const [show, setShow] = useState(false)
